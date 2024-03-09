@@ -1,5 +1,11 @@
 "use client";
 
+import React, { useCallback, useRef, useState } from "react";
+
+import { CaretDownIcon, CodeIcon, ImageIcon } from "@radix-ui/react-icons";
+import { toJpeg } from "html-to-image";
+
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -9,11 +15,12 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { gradientsCore, positionDirections, positionValues } from "@/data/core";
-import { CaretDownIcon, CodeIcon, ImageIcon } from "@radix-ui/react-icons";
-import { toJpeg } from "html-to-image";
-import React, { useCallback, useRef, useState } from "react";
-import { toast } from "sonner";
+import Notification from "@/components/notification";
+
+import { gradientsCore } from "@/data/core";
+import { positionDirections, positionValues } from "@/data/directions";
+
+import { generateVanillaGradients } from "@/lib/generateCSS";
 
 export default function ColorCards() {
   const childRefs = useRef(
@@ -38,10 +45,17 @@ export default function ColorCards() {
     navigator.clipboard.writeText(
       `${position[idx]?.direction} ${gradient.colors}`
     );
-    toast(<Notification />);
+    toast(<Notification element={"tailwind"} />);
   };
 
-  const handleChildRef = useCallback(
+  const handleCopyVanilaCSS = (gradient, from, via, to) => {
+    const code = generateVanillaGradients(gradient, from, via, to);
+    navigator.clipboard.writeText(code);
+
+    toast(<Notification element={"css"} />);
+  };
+
+  const handleDownloadImage = useCallback(
     (index) => {
       const node = childRefs.current[index].current;
       if (node === null) {
@@ -136,6 +150,14 @@ export default function ColorCards() {
                 variant="secondary"
                 size="icon"
                 className="ml-2 hover:text-pink-500"
+                onClick={() =>
+                  handleCopyVanilaCSS(
+                    position[idx]?.direction,
+                    gradient.colors?.split(" ")[0],
+                    gradient.colors?.split(" ")[1],
+                    gradient.colors?.split(" ")[2]
+                  )
+                }
               >
                 <CodeIcon className="h-4 w-4" />
               </Button>
@@ -145,7 +167,7 @@ export default function ColorCards() {
                 variant="secondary"
                 size="icon"
                 className="ml-2 hover:text-lime-500"
-                onClick={() => handleChildRef(idx)}
+                onClick={() => handleDownloadImage(idx)}
               >
                 <ImageIcon className="h-4 w-4" />
               </Button>
@@ -156,24 +178,3 @@ export default function ColorCards() {
     </div>
   );
 }
-
-const Notification = () => {
-  return (
-    <span className="flex">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 54 33"
-        className="h-4 w-4 mr-4 text-cyan-400"
-      >
-        <path
-          fill="currentColor"
-          fillRule="evenodd"
-          d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
-          clipRule="evenodd"
-        ></path>
-      </svg>
-      Code Copied
-    </span>
-  );
-};
