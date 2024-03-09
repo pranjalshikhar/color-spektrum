@@ -17,11 +17,16 @@ export default function Header() {
         >
           Generator
         </Link>
-        <Link href={"/"} className="ml-6">
-          Mesh
+        <Link
+          href={"/grainy"}
+          className="ml-6 text-white hover:bg-gradient-to-r hover:from-red-500 hover:to-green-500 hover:bg-clip-text hover:text-transparent"
+        >
+          Grainy
         </Link>
       </div>
-      <GitHubLogoIcon className="h-5 w-5" />
+      <Link href={"https://github.com/pranjalshikhar/color-spektrum"}>
+        <GitHubLogoIcon className="h-5 w-5" />
+      </Link>
     </div>
   );
 }
