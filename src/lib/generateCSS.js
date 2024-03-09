@@ -22,11 +22,33 @@ export const generateVanillaGradients = (gradient, from, via, to) => {
   const resultantTo =
     toSelectedColor && toRange ? colors[toSelectedColor][toRange] : null;
 
-  const result = `${resultantGradient}(${
-    resultantDirection ? resultantDirection + ", " : ""
-  }${resultantFrom ? resultantFrom + ", " : ""}, ${
-    resultantVia ? resultantVia + ", " : ""
-  }, ${resultantTo ? resultantTo + ", " : ""})`;
+  const result = resultantCode(
+    resultantGradient,
+    resultantDirection,
+    resultantFrom,
+    resultantVia,
+    resultantTo
+  );
 
   return result;
 };
+
+function resultantCode(gradient, direction, from, via, to) {
+  let gradientString = gradient + "(" + direction;
+
+  if (from) {
+    gradientString += `, ${from}`;
+  }
+
+  if (via) {
+    gradientString += `, ${via}`;
+  }
+
+  if (to) {
+    gradientString += `, ${to}`;
+  }
+
+  gradientString += ")";
+
+  return gradientString;
+}

@@ -10,7 +10,7 @@ export default function Home() {
       <Head>
         <title>Color Spektrum</title>
       </Head>
-      <div className="flex flex-col justify-center items-center text-center px-20 py-40">
+      <div className="flex flex-col justify-center items-center text-center pt-20 py-40">
         <div className="text-center font-black">
           <div className="bg-gradient-to-r from-yellow-100 via-yellow-300 to-yellow-500 bg-clip-text text-transparent">
             Gradients for Tailwind CSS

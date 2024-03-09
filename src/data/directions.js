@@ -175,3 +175,45 @@ export const positionValues = {
   "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))]":
     "Radial Left",
 };
+
+export const positionValuesReverse = {
+  "To Top Left": "bg-gradient-to-tl",
+  "To Top": "bg-gradient-to-t",
+  "To Top Right": "bg-gradient-to-tr",
+  "To Right": "bg-gradient-to-r",
+  "To Bottom Right": "bg-gradient-to-br",
+  "To Bottom": "bg-gradient-to-b",
+  "To Bottom Left": "bg-gradient-to-bl",
+  "To Left": "bg-gradient-to-l",
+  "Conic Center": "bg-[conic-gradient(var(--tw-gradient-stops))]",
+  "Conic Top Left":
+    "bg-[conic-gradient(at_top_left,_var(--tw-gradient-stops))]",
+  "Conic Top": "bg-[conic-gradient(at_top,_var(--tw-gradient-stops))]",
+  "Conic Top Right":
+    "bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))]",
+  "Conic Right": "bg-[conic-gradient(at_right,_var(--tw-gradient-stops))]",
+  "Conic Bottom Right":
+    "bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))]",
+  "Conic Bottom": "bg-[conic-gradient(at_bottom,_var(--tw-gradient-stops))]",
+  "Conic Bottom Left":
+    "bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))]",
+  "Conic Left": "bg-[conic-gradient(at_left,_var(--tw-gradient-stops))]",
+  "Radial Center":
+    "bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]",
+  "Radial Top Left":
+    "bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))]",
+  "Radial Top":
+    "bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))]",
+  "Radial Top Right":
+    "bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))]",
+  "Radial Right":
+    "bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))]",
+  "Radial Bottom Right":
+    "bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))]",
+  "Radial Bottom":
+    "bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))]",
+  "Radial Bottom Left":
+    "bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))]",
+  "Radial Left":
+    "bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))]",
+};

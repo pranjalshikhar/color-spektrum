@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <div className="flex justify-between items-center text-center px-40 py-8 border border-b-2">
-      <div className="font-semibold text-xl">
+    <div className="flex justify-between items-center text-center px-40 py-8 border-b-2">
+      <div className="font-semibold text-lg">
         <Link
           href={"/"}
           className="text-white hover:bg-gradient-to-r hover:from-pink-300 hover:via-purple-300 hover:to-indigo-400 hover:bg-clip-text hover:text-transparent"

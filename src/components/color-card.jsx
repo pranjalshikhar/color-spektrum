@@ -69,7 +69,7 @@ export default function ColorCards() {
       })
         .then((dataUrl) => {
           const link = document.createElement("a");
-          link.download = "Spektrum.png";
+          link.download = "Spektrum.jpg";
           link.href = dataUrl;
           link.click();
         })
